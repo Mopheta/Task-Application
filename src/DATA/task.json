@@ -1,0 +1,33 @@
+[
+    {
+        "id": 0,
+        "title": "Task number 1",
+        "description": "Planning",
+        "done": true
+    },
+    {
+        "id": 1,
+        "title": "Task number 2",
+        "description": "Development",
+        "done": false
+    },
+    {
+        "id": 2,
+        "title": "Task number 3",
+        "description": "Deploy",
+        "done": false
+    },
+    {
+        "id": 3,
+        "title": "Task number 4",
+        "description": "Quality Assurance",
+        "done": false
+    },
+    {
+        "id": 4,
+        "title": "Task number 5",
+        "description": "Release",
+        "done": false
+    }
+    
+]
