@@ -19,8 +19,11 @@ class Task extends Component {
             <div style={this.StyleCompleted()}>
                 <div>
                     {tareaComoProp.id} - {tareaComoProp.title} - {tareaComoProp.description} - {tareaComoProp.done}
-                    <input type="checkbox"></input>
-                    <button style={btn_x}> X </button>
+                    <input type="checkbox" onClick= { this.props.checkDone.bind(this, tareaComoProp.id) }></input>
+                    <button style={btn_x}
+                     onClick={ this.props.deleteTask.bind(this, tareaComoProp.id) }  //Bind para pasar una propiedad - Se usa porque estoy dentro del evento oncClick  
+                    > X 
+                    </button>
                 </div>
             </div>
     )}

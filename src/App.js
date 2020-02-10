@@ -18,12 +18,53 @@ class App extends Component{
     tasks: jsonTask
   }
 
+  //Metodo que envia una funcion por props
+  addNewTask = (title, description) => {
+    const newTask = {
+      id: this.state.tasks.length,
+      title: title,
+      description: description,
+      done: false
+      
+    }
+    this.setState({
+      tasks: [...this.state.tasks, newTask]
+    })
+  }
+
+  deleteTask = (id) => {
+    const taskAfterDelete = this.state.tasks.filter(task => task.id !== id);
+    //console.log(taskAfterDelete);
+
+    this.setState({
+      tasks: taskAfterDelete
+    })
+  }
+
+  editTask = (id) => {
+    const editTask = this.state.tasks.find(task => task.id === id);
+    console.log(editTask);
+  }
+
+  checkDone = (id) => {
+    const newTasks = this.state.tasks.map(task =>{
+      if(task.id === id){
+        task.done = !task.done;
+      }
+      return task;
+    })
+    this.setState({
+      task: newTasks
+    })
+    console.log(this.state.tasks)
+  }
+
   render(){
     console.log(this.state.tasks);
     return (
       <div>
-        <TaskForm />
-        <Tasks tareas = {this.state.tasks}/>     
+        <TaskForm addNewTask={ this.addNewTask } />
+        <Tasks tareas = {this.state.tasks} deleteTask = { this.deleteTask } editTask = { this.editTask } checkDone = { this.checkDone}/>     
       </div>
     )}
 }

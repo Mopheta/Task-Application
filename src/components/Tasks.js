@@ -5,7 +5,7 @@ import TareaIndividual from './Task';
 
 class Tasks extends Component {
     render(){
-        return this.props.tareas.map((e,index) => <TareaIndividual tareaComoProp = { e } key={ index }/>);        
+        return this.props.tareas.map((task,index) => <TareaIndividual tareaComoProp = { task } key={ index } deleteTask = { this.props.deleteTask }  checkDone = { this.props.checkDone }/>);        
     }
 }
 
