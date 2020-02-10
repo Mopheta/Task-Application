@@ -7,6 +7,7 @@ import jsonTask from './DATA/task.json';
 //Componentes
 import Tasks from './components/Tasks';
 import TaskForm from './components/TaskForm';
+import Posts from './components/Post'
 
 //State: define los  datos que le pertenecen al componente
 //Metodo map: funciona en arrays, recorre y devuelve un array nuevo
@@ -34,8 +35,6 @@ class App extends Component{
 
   deleteTask = (id) => {
     const taskAfterDelete = this.state.tasks.filter(task => task.id !== id);
-    //console.log(taskAfterDelete);
-
     this.setState({
       tasks: taskAfterDelete
     })
@@ -64,7 +63,14 @@ class App extends Component{
     return (
       <div>
         <TaskForm addNewTask={ this.addNewTask } />
-        <Tasks tareas = {this.state.tasks} deleteTask = { this.deleteTask } editTask = { this.editTask } checkDone = { this.checkDone}/>     
+        <Tasks 
+          tareas = {this.state.tasks} 
+          deleteTask = { this.deleteTask }
+          editTask = { this.editTask } 
+          checkDone = { this.checkDone}
+
+        />
+        <Posts/>     
       </div>
     )}
 }
